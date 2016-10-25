@@ -61,8 +61,8 @@ class Provision(models.Model):
     start_at = models.DateTimeField(auto_now_add=True)
     end_at = models.DateTimeField()
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return str(self.id)
 
 class ProductStatus(models.Model):
     code = models.CharField(max_length=50)
@@ -85,4 +85,4 @@ class ProductData(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.created_at)
+        return str(self.id)
