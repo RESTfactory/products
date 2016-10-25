@@ -54,14 +54,33 @@ class Local(models.Model):
     def __str__(self):
         return self.name
 
+class Provision(models.Model):
+    product_instances = models.ManyToManyField(ProductInstance)
+    local = models.ForeignKey(Local)
+
+    start_at = models.DateTimeField(auto_now_add=True)
+    end_at = models.DateTimeField()
+
+    # def __str__(self):
+    #     return self.name
+
+class ProductStatus(models.Model):
+    code = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    client = models.ForeignKey(Client, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 class ProductData(models.Model):
     product_instance = models.ForeignKey(ProductInstance)
     local = models.ForeignKey(Local)
+    provision = models.ForeignKey(Provision, blank=True, null=True)
 
     price = models.FloatField(blank=True, null=True)
-    share = models.IntegerField(blank=True, null=True)
-    # status = disponible, ajuste, maestra, abastecimiento
+    shelf_share = models.IntegerField(blank=True, null=True)
+    shelf_stock = models.IntegerField(blank=True, null=True)
+    status = models.ForeignKey(ProductStatus, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
