@@ -20,6 +20,7 @@ class Category(models.Model):
 class Product(models.Model):
     sku = models.CharField(max_length=40, unique=True)
     name = models.CharField(max_length=30)
+    image = models.URLField(max_length=255, blank=True)
     brand = models.ForeignKey(Brand, blank=True)
     category = models.ForeignKey(Category)
 
