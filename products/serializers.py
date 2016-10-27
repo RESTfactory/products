@@ -32,7 +32,7 @@ class ProductInstanceSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ProductInstance
-        fields = [ "url", "id", "name", "category", "product", "client"]
+        fields = [ "url", "id", "code", "name", "category", "product", "client"]
 
 class LocalSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

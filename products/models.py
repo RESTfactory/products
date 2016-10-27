@@ -37,6 +37,7 @@ class Client(models.Model):
 
 
 class ProductInstance(models.Model):
+    code = models.CharField(max_length=40, blank=True, null=True)
     name = models.CharField(max_length=30)
     category = models.ForeignKey(Category, blank=True)
     product = models.ForeignKey(Product, blank=True)
