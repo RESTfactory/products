@@ -1,6 +1,33 @@
 from rest_framework import viewsets
-from .models import Brand, Category, Product, Client, ProductInstance, Local, Provision, ProductStatus, ProductData
-from .serializers import BrandSerializer, CategorySerializer, ProductSerializer, ClientSerializer, ProductInstanceSerializer, LocalSerializer, ProvisionSerializer, ProductStatusSerializer, ProductDataSerializer
+from .filters import ProvisionFilter
+from .models import (
+    Brand,
+    Category,
+    Product,
+    Client,
+    ProductInstance,
+    Local,
+    Provision,
+    ProductStatus,
+    ProductData,
+    PriceData,
+    PresenceData,
+    ShareData
+)
+from .serializers import (
+    BrandSerializer,
+    CategorySerializer,
+    ProductSerializer,
+    ClientSerializer,
+    ProductInstanceSerializer,
+    LocalSerializer,
+    ProvisionSerializer,
+    ProductStatusSerializer,
+    ProductDataSerializer,
+    PriceDataSerializer,
+    PresenceDataSerializer,
+    ShareDataSerializer
+)
 
 class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
@@ -29,6 +56,7 @@ class LocalViewSet(viewsets.ModelViewSet):
 class ProvisionViewSet(viewsets.ModelViewSet):
     queryset = Provision.objects.all()
     serializer_class = ProvisionSerializer
+    # filter_class = ProvisionFilter
 
 class ProductStatusViewSet(viewsets.ModelViewSet):
     queryset = ProductStatus.objects.all()
@@ -37,3 +65,15 @@ class ProductStatusViewSet(viewsets.ModelViewSet):
 class ProductDataViewSet(viewsets.ModelViewSet):
     queryset = ProductData.objects.all()
     serializer_class = ProductDataSerializer
+
+class PriceDataViewSet(viewsets.ModelViewSet):
+    queryset = PriceData.objects.all()
+    serializer_class = PriceDataSerializer
+
+class PresenceDataViewSet(viewsets.ModelViewSet):
+    queryset = PresenceData.objects.all()
+    serializer_class = PresenceDataSerializer
+
+class ShareDataViewSet(viewsets.ModelViewSet):
+    queryset = ShareData.objects.all()
+    serializer_class = ShareDataSerializer

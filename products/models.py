@@ -46,8 +46,6 @@ class ProductInstance(models.Model):
     def __str__(self):
         return self.name
 
-
-#Provisional model
 class Local(models.Model):
     name = models.CharField(max_length=30)
     code = models.CharField(max_length=40, unique=True)
@@ -74,17 +72,46 @@ class ProductStatus(models.Model):
     def __str__(self):
         return self.name
 
-class ProductData(models.Model):
+class ProductDataMixin(models.Model):
     product_instance = models.ForeignKey(ProductInstance)
     local = models.ForeignKey(Local)
     provision = models.ForeignKey(Provision, blank=True, null=True)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+##############################################
+# TODO: Delete ProductData
+# TODO: Add select to PriceData for price_type
+##############################################
+class ProductData(ProductDataMixin):
     price = models.FloatField(blank=True, null=True)
     shelf_share = models.IntegerField(blank=True, null=True)
     shelf_stock = models.IntegerField(blank=True, null=True)
     status = models.ForeignKey(ProductStatus, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.id)
+
+class PriceData(ProductDataMixin):
+    price = models.FloatField(blank=True, null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+class PresenceData(ProductDataMixin):
+    status = models.ForeignKey(ProductStatus, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+class ShareData(ProductDataMixin):
+    shelf_share = models.IntegerField(blank=True, null=True)
+    shelf_stock = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return str(self.id)

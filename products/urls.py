@@ -16,7 +16,20 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
-from .views import BrandViewSet, CategoryViewSet, ProductViewSet, ClientViewSet, ProductInstanceViewSet, LocalViewSet, ProvisionViewSet, ProductStatusViewSet, ProductDataViewSet
+from .views import (
+    BrandViewSet,
+    CategoryViewSet,
+    ProductViewSet,
+    ClientViewSet,
+    ProductInstanceViewSet,
+    LocalViewSet,
+    ProvisionViewSet,
+    ProductStatusViewSet,
+    ProductDataViewSet,
+    PriceDataViewSet,
+    PresenceDataViewSet,
+    ShareDataViewSet
+)
 
 router = routers.DefaultRouter()
 router.register(r'brands', BrandViewSet)
@@ -27,7 +40,10 @@ router.register(r'productsinstances', ProductInstanceViewSet)
 router.register(r'locals', LocalViewSet)
 router.register(r'provisions', ProvisionViewSet)
 router.register(r'productstatus', ProductStatusViewSet)
-router.register(r'productsdatas', ProductDataViewSet)
+router.register(r'productsdatas', ProductDataViewSet) #borrar esta wea
+router.register(r'pricedatas', PriceDataViewSet)
+router.register(r'presencedatas', PresenceDataViewSet)
+router.register(r'sharedatas', ShareDataViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
