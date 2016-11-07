@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'crispy_forms',
     'products',
 ]
 
@@ -123,6 +124,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # DRF Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_filters.backends.DjangoFilterBackend',
+    ),
+}
+
 # REST_FRAMEWORK = {
 #     'PAGE_SIZE': 10,
 #     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
