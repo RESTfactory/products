@@ -98,20 +98,20 @@ class ProductData(ProductDataMixin):
         return str(self.id)
 
 class PriceData(ProductDataMixin):
-    price = models.FloatField(blank=True, null=True)
+    price = models.FloatField()
 
     def __str__(self):
         return str(self.id)
 
 class PresenceData(ProductDataMixin):
-    status = models.ForeignKey(ProductStatus, blank=True, null=True)
+    status = models.ForeignKey(ProductStatus)
 
     def __str__(self):
         return str(self.id)
 
 class ShareData(ProductDataMixin):
-    shelf_share = models.IntegerField(blank=True, null=True)
-    shelf_stock = models.IntegerField(blank=True, null=True)
+    shelf_share = models.IntegerField()
+    shelf_stock = models.IntegerField()
 
     def __str__(self):
         return str(self.id)
