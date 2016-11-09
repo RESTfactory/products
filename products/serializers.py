@@ -72,7 +72,7 @@ class PriceTypeSerializer(serializers.ModelSerializer):
     client = ClientSerializer(many=False, read_only=False)
 
     class Meta:
-        model = ProductStatus
+        model = PriceType
         fields = ["url", "id", "code", "name", "client"]
 
 class ProductDataMixinSerializer(serializers.ModelSerializer):
