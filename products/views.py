@@ -9,6 +9,7 @@ from .models import (
     Local,
     Provision,
     ProductStatus,
+    PriceType,
     ProductData,
     PriceData,
     PresenceData,
@@ -23,6 +24,7 @@ from .serializers import (
     LocalSerializer,
     ProvisionSerializer,
     ProductStatusSerializer,
+    PriceTypeSerializer,
     ProductDataSerializer,
     PriceDataSerializer,
     PresenceDataSerializer,
@@ -61,6 +63,10 @@ class ProvisionViewSet(viewsets.ModelViewSet):
 class ProductStatusViewSet(viewsets.ModelViewSet):
     queryset = ProductStatus.objects.all()
     serializer_class = ProductStatusSerializer
+
+class PriceTypeViewSet(viewsets.ModelViewSet):
+    queryset = PriceType.objects.all()
+    serializer_class = PriceTypeSerializer
 
 class ProductDataViewSet(viewsets.ModelViewSet):
     queryset = ProductData.objects.all()

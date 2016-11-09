@@ -9,6 +9,7 @@ from .models import (
     Local,
     Provision,
     ProductStatus,
+    PriceType,
     ProductData,
     PriceData,
     PresenceData,
@@ -67,6 +68,13 @@ class ProductStatusSerializer(serializers.ModelSerializer):
         model = ProductStatus
         fields = ["url", "id", "code", "name", "client"]
 
+class PriceTypeSerializer(serializers.ModelSerializer):
+    client = ClientSerializer(many=False, read_only=False)
+
+    class Meta:
+        model = ProductStatus
+        fields = ["url", "id", "code", "name", "client"]
+
 class ProductDataMixinSerializer(serializers.ModelSerializer):
     # product_instance = ProductInstanceSerializer(many=False, read_only=False)
     # local = LocalSerializer(many=False, read_only=False)
@@ -85,7 +93,7 @@ class PriceDataSerializer(ProductDataMixinSerializer):
 
     class Meta:
         model = PriceData
-        fields = ["url", "id", "price", "product_instance", "local", "provision"]
+        fields = ["url", "id", "price", "price_type", "product_instance", "local", "provision"]
 
 class PresenceDataSerializer(ProductDataMixinSerializer):
 
