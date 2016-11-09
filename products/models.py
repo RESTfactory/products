@@ -72,6 +72,14 @@ class ProductStatus(models.Model):
     def __str__(self):
         return self.name
 
+class PriceType(models.Model):
+    code = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    client = models.ForeignKey(Client, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
 class ProductDataMixin(models.Model):
     product_instance = models.ForeignKey(ProductInstance)
     local = models.ForeignKey(Local)
@@ -99,6 +107,7 @@ class ProductData(ProductDataMixin):
 
 class PriceData(ProductDataMixin):
     price = models.FloatField()
+    price_type = models.ForeignKey(PriceType)
 
     def __str__(self):
         return str(self.id)
