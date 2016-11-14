@@ -58,7 +58,7 @@ class LocalViewSet(viewsets.ModelViewSet):
 class ProvisionViewSet(viewsets.ModelViewSet):
     queryset = Provision.objects.all()
     serializer_class = ProvisionSerializer
-    # filter_class = ProvisionFilter
+    filter_class = ProvisionFilter
 
 class ProductStatusViewSet(viewsets.ModelViewSet):
     queryset = ProductStatus.objects.all()

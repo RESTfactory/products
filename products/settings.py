@@ -126,8 +126,8 @@ STATIC_URL = '/static/'
 # DRF Configuration
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework_filters.backends.DjangoFilterBackend',
-    ),
+        'django_filters.rest_framework.DjangoFilterBackend',
+    )
 }
 
 # REST_FRAMEWORK = {
