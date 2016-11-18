@@ -48,7 +48,8 @@ class ProductInstance(models.Model):
 
 class Local(models.Model):
     name = models.CharField(max_length=30)
-    code = models.CharField(max_length=40, unique=True)
+    code = models.CharField(max_length=40, unique=True, primary_key=True)
+    local_code = models.CharField(max_length=40)
     place_id = models.CharField(max_length=40, unique=True)
 
     def __str__(self):

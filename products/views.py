@@ -54,6 +54,7 @@ class ProductInstanceViewSet(viewsets.ModelViewSet):
 class LocalViewSet(viewsets.ModelViewSet):
     queryset = Local.objects.all()
     serializer_class = LocalSerializer
+    lookup_field = 'code'
 
 class ProvisionViewSet(viewsets.ModelViewSet):
     queryset = Provision.objects.all()

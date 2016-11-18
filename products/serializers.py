@@ -51,7 +51,7 @@ class ProductInstanceSerializer(serializers.ModelSerializer):
 class LocalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Local
-        fields = [ "url", "id", "name", "code", "place_id"]
+        fields = [ "code", "name",  "place_id"]
 
 class ProvisionSerializer(serializers.ModelSerializer):
     local = LocalSerializer(many=False, read_only=False)
