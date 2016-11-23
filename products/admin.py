@@ -9,7 +9,6 @@ from .models import (
     Provision,
     ProductStatus,
     PriceType,
-    ProductData,
     PriceData,
     PresenceData,
     ShareData
@@ -24,7 +23,6 @@ admin.site.register(Local)
 admin.site.register(Provision)
 admin.site.register(ProductStatus)
 admin.site.register(PriceType)
-admin.site.register(ProductData) #delete
 admin.site.register(PriceData)
 admin.site.register(PresenceData)
 admin.site.register(ShareData)

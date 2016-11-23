@@ -91,21 +91,6 @@ class ProductDataMixin(models.Model):
     class Meta:
         abstract = True
 
-##############################################
-# TODO: Delete ProductData
-# TODO: Add select to PriceData for price_type
-##############################################
-class ProductData(ProductDataMixin):
-    price = models.FloatField(blank=True, null=True)
-    shelf_share = models.IntegerField(blank=True, null=True)
-    shelf_stock = models.IntegerField(blank=True, null=True)
-    status = models.ForeignKey(ProductStatus, blank=True, null=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return str(self.id)
-
 class PriceData(ProductDataMixin):
     price = models.FloatField()
     price_type = models.ForeignKey(PriceType)

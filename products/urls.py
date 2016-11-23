@@ -26,7 +26,6 @@ from .views import (
     ProvisionViewSet,
     ProductStatusViewSet,
     PriceTypeViewSet,
-    ProductDataViewSet,
     PriceDataViewSet,
     PresenceDataViewSet,
     ShareDataViewSet
@@ -42,7 +41,6 @@ router.register(r'locals', LocalViewSet)
 router.register(r'provisions', ProvisionViewSet)
 router.register(r'productstatus', ProductStatusViewSet)
 router.register(r'pricetypes', PriceTypeViewSet)
-router.register(r'productsdatas', ProductDataViewSet) #borrar esta wea
 router.register(r'pricedatas', PriceDataViewSet)
 router.register(r'presencedatas', PresenceDataViewSet)
 router.register(r'sharedatas', ShareDataViewSet)

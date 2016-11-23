@@ -10,7 +10,6 @@ from .models import (
     Provision,
     ProductStatus,
     PriceType,
-    ProductData,
     PriceData,
     PresenceData,
     ShareData
@@ -80,14 +79,6 @@ class ProductDataMixinSerializer(serializers.ModelSerializer):
     # local = LocalSerializer(many=False, read_only=False)
     # provision = ProvisionSerializer(many=False, read_only=False)
     pass
-
-#TODO: Delete
-class ProductDataSerializer(ProductDataMixinSerializer):
-    status = ProductStatusSerializer(many=False, read_only=False)
-
-    class Meta:
-        model = ProductData
-        fields = ["url", "id", "price", "shelf_share", "shelf_stock", "product_instance", "local", "provision", "status"]
 
 class PriceDataSerializer(ProductDataMixinSerializer):
 
