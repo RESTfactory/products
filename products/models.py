@@ -19,10 +19,10 @@ class Category(models.Model):
 
 class Product(models.Model):
     sku = models.CharField(max_length=40, unique=True)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     image = models.URLField(max_length=255, blank=True)
-    brand = models.ForeignKey(Brand, blank=True)
-    category = models.ForeignKey(Category)
+    brand = models.ForeignKey(Brand, blank=True, null=True)
+    category = models.ForeignKey(Category, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -38,7 +38,7 @@ class Client(models.Model):
 
 class ProductInstance(models.Model):
     code = models.CharField(max_length=40, blank=True, null=True)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, blank=True)
     product = models.ForeignKey(Product, blank=True)
     client = models.ForeignKey(Client, blank=True)
