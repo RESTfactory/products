@@ -39,9 +39,9 @@ class Client(models.Model):
 class ProductInstance(models.Model):
     code = models.CharField(max_length=40, blank=True, null=True)
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, blank=True)
+    category = models.ForeignKey(Category, blank=True, null=True)
     product = models.ForeignKey(Product, blank=True)
-    client = models.ForeignKey(Client, blank=True)
+    client = models.ForeignKey(Client, blank=True, null=True)
 
     def __str__(self):
         return self.name
