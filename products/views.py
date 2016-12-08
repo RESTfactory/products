@@ -1,10 +1,14 @@
 from rest_framework import viewsets
 from .filters import ProvisionFilter
+from rest_framework_borderkeeper.views import (
+    OwnerQuerysetFilterMixin,
+    ClientQuerysetFilterMixin,
+    InstanceQuerysetFilterMixin
+)
 from .models import (
     Brand,
     Category,
     Product,
-    Client,
     ProductInstance,
     Local,
     Provision,
@@ -18,7 +22,6 @@ from .serializers import (
     BrandSerializer,
     CategorySerializer,
     ProductSerializer,
-    ClientSerializer,
     ProductInstanceSerializer,
     LocalSerializer,
     ProvisionSerializer,
@@ -41,11 +44,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-class ClientViewSet(viewsets.ModelViewSet):
-    queryset = Client.objects.all()
-    serializer_class = ClientSerializer
-
-class ProductInstanceViewSet(viewsets.ModelViewSet):
+class ProductInstanceViewSet(ClientQuerysetFilterMixin, viewsets.ModelViewSet):
     queryset = ProductInstance.objects.all()
     serializer_class = ProductInstanceSerializer
 

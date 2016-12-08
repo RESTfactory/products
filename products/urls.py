@@ -20,7 +20,6 @@ from .views import (
     BrandViewSet,
     CategoryViewSet,
     ProductViewSet,
-    ClientViewSet,
     ProductInstanceViewSet,
     LocalViewSet,
     ProvisionViewSet,
@@ -35,7 +34,6 @@ router = routers.DefaultRouter()
 router.register(r'brands', BrandViewSet)
 router.register(r'categories', CategoryViewSet)
 router.register(r'products', ProductViewSet)
-router.register(r'clients', ClientViewSet)
 router.register(r'productsinstances', ProductInstanceViewSet)
 router.register(r'locals', LocalViewSet)
 router.register(r'provisions', ProvisionViewSet)

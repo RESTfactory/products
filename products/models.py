@@ -1,5 +1,11 @@
 from django.conf import settings
 from django.db import models
+from rest_framework_borderkeeper.models import (
+    Owner,
+    Client,
+    Instance
+)
+
 
 class Brand(models.Model):
     name = models.CharField(max_length=30)
@@ -27,16 +33,8 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-#Provisional model
-class Client(models.Model):
-    name = models.CharField(max_length=30)
-    code = models.CharField(max_length=40, unique=True)
-
-    def __str__(self):
-        return self.name
-
-
 class ProductInstance(models.Model):
+    owner = models.ForeignKey(Owner)
     code = models.CharField(max_length=40, blank=True, null=True)
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, blank=True, null=True)

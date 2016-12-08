@@ -4,7 +4,6 @@ from .models import (
     Brand,
     Category,
     Product,
-    Client,
     ProductInstance,
     Local,
     Provision,
@@ -33,19 +32,13 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = [ "url", "id", "sku", "name", "image", "brand", "category"]
 
-class ClientSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Client
-        fields = [ "url", "id", "name", "code"]
-
 class ProductInstanceSerializer(serializers.ModelSerializer):
     category = CategorySerializer(many=False, read_only=False)
     product = ProductSerializer(many=False, read_only=False)
-    client = ClientSerializer(many=False, read_only=False)
 
     class Meta:
         model = ProductInstance
-        fields = [ "url", "id", "code", "name", "category", "product", "client"]
+        fields = [ "url", "id", "code", "name", "category", "product"]
 
 class LocalSerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,11 +54,10 @@ class ProvisionSerializer(serializers.ModelSerializer):
         fields = ["url", "id", "start_at", "end_at", "local", "product_instances"]
 
 class ProductStatusSerializer(serializers.ModelSerializer):
-    client = ClientSerializer(many=False, read_only=False)
 
     class Meta:
         model = ProductStatus
-        fields = ["url", "id", "code", "name", "client"]
+        fields = ["url", "id", "code", "name"]
 
 class PriceTypeSerializer(serializers.ModelSerializer):
     # client = ClientSerializer(many=False, read_only=True)

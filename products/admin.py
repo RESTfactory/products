@@ -3,7 +3,6 @@ from .models import (
     Brand,
     Category,
     Product,
-    Client,
     ProductInstance,
     Local,
     Provision,
@@ -17,7 +16,6 @@ from .models import (
 admin.site.register(Brand)
 admin.site.register(Category)
 admin.site.register(Product)
-admin.site.register(Client)
 admin.site.register(ProductInstance)
 admin.site.register(Local)
 admin.site.register(Provision)

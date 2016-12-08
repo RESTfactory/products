@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'products',
+    'rest_framework_borderkeeper',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,12 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+
     )
 }
 
