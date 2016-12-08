@@ -34,12 +34,12 @@ class Product(models.Model):
         return self.name
 
 class ProductInstance(models.Model):
-    # owner = models.ForeignKey(Owner)
+    owner = models.ForeignKey(Owner)
     code = models.CharField(max_length=40, blank=True, null=True)
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, blank=True, null=True)
     product = models.ForeignKey(Product, blank=True)
-    # client = models.ForeignKey(Client, blank=True, null=True)
+    client = models.ForeignKey(Client, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -66,7 +66,7 @@ class Provision(models.Model):
 class ProductStatus(models.Model):
     code = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
-    # client = models.ForeignKey(Client, blank=True, null=True)
+    client = models.ForeignKey(Client, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -74,7 +74,7 @@ class ProductStatus(models.Model):
 class PriceType(models.Model):
     code = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
-    # client = models.ForeignKey(Client, blank=True, null=True)
+    client = models.ForeignKey(Client, blank=True, null=True)
 
     def __str__(self):
         return self.name
